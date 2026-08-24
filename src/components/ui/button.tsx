@@ -14,9 +14,15 @@ const buttonVariants = cva(
         outline:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost: "hover:bg-secondary hover:text-secondary-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-      },
+        hero: "bg-cyan-teal text-primary-foreground shadow-[var(--shadow-lift)] hover:bg-teal-medium",
+        gold: "bg-gold text-teal-deepest font-semibold shadow-sm hover:brightness-105",
+        onteal:
+          "border border-white/25 bg-white/10 text-primary-foreground backdrop-blur hover:bg-white/20",
+        emerald: "bg-emerald text-primary-foreground shadow-sm hover:brightness-105",
+        danger: "bg-crimson text-primary-foreground shadow-sm hover:brightness-110",
+
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
