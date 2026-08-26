@@ -47,17 +47,17 @@ export function ConsoleLayout({
   return (
     <div className="min-h-screen bg-background lg:flex">
       <aside
-        className={`${open ? "block" : "hidden"} bg-sidebar text-sidebar-foreground lg:block lg:w-72 lg:shrink-0`}
+        className={`${open ? "block" : "hidden"} border-r border-white/10 bg-card text-sidebar-foreground lg:block lg:w-72 lg:shrink-0`}
       >
-        <div className="flex h-16 items-center gap-2.5 border-b border-sidebar-border px-5">
-          <span className="grid size-9 place-items-center rounded-lg bg-cyan-teal text-primary-foreground">
+        <div className="flex h-16 items-center gap-2.5 border-b border-white/10 px-5">
+          <span className="grid size-9 place-items-center rounded-lg bg-cyan-500 text-slate-950 shadow-[0_0_12px_rgba(6,182,212,0.4)]">
             <TrendingUp className="size-5" />
           </span>
           <div className="leading-tight">
-            <p className="font-display text-sm font-extrabold text-primary-foreground">
+            <p className="font-display text-sm font-extrabold text-white">
               {role === "admin" ? "Admin Console" : "Proctor Room"}
             </p>
-            <p className="text-[11px] text-sidebar-foreground/60">Investment Competition 2026</p>
+            <p className="text-[11px] text-slate-500">Investment Competition 2026</p>
           </div>
         </div>
         <nav className="space-y-1 p-4">
@@ -67,25 +67,25 @@ export function ConsoleLayout({
               to={item.to}
               activeOptions={{ exact: item.to === "/admin" || item.to === "/pengawas" }}
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-sidebar-foreground/75 transition-colors hover:bg-sidebar-accent hover:text-primary-foreground"
-              activeProps={{ className: "bg-sidebar-accent text-primary-foreground" }}
+              className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-400 transition-colors hover:bg-white/5 hover:text-cyan-400"
+              activeProps={{ className: "bg-white/5 text-cyan-400" }}
             >
               <item.icon className="size-4" />
               {item.label}
             </Link>
           ))}
         </nav>
-        <div className="mx-4 mt-4 rounded-xl border border-sidebar-border bg-white/5 p-4">
-          <p className="text-xs text-sidebar-foreground/70">Gelombang aktif</p>
-          <p className="mt-1 font-display text-lg font-bold text-primary-foreground">
+        <div className="mx-4 mt-4 rounded-xl border border-white/10 bg-white/5 p-4">
+          <p className="text-xs text-slate-500">Gelombang aktif</p>
+          <p className="mt-1 font-display text-lg font-bold text-white">
             Penyisihan CBT · Sesi 2
           </p>
-          <p className="mt-1 text-xs text-cyan-teal">Berlangsung · 09:00–10:30 WIB</p>
+          <p className="mt-1 text-xs text-cyan-400">Berlangsung · 09:00–10:30 WIB</p>
         </div>
         <div className="p-4">
           <Link
             to="/"
-            className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-sidebar-foreground/60 hover:text-primary-foreground"
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs text-slate-500 hover:text-cyan-400"
           >
             <ClipboardList className="size-4" /> Kembali ke situs publik
           </Link>
@@ -93,20 +93,20 @@ export function ConsoleLayout({
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="flex flex-col gap-3 border-b border-border bg-card px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between">
+        <header className="flex flex-col gap-3 border-b border-white/10 bg-card px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-3">
             <Button
               variant="outline"
               size="icon"
-              className="lg:hidden"
+              className="border-white/10 bg-transparent text-slate-300 hover:bg-white/5 hover:text-white lg:hidden"
               aria-label="Buka menu"
               onClick={() => setOpen((v) => !v)}
             >
               <Menu />
             </Button>
             <div>
-              <h1 className="text-xl font-bold text-teal-deepest">{title}</h1>
-              {subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
+              <h1 className="text-xl font-bold text-white">{title}</h1>
+              {subtitle && <p className="text-sm text-slate-400">{subtitle}</p>}
             </div>
           </div>
           {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
