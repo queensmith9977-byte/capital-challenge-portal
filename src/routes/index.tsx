@@ -35,6 +35,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Ikuti kompetisi investasi nasional dengan ujian CBT terstandar dan skor otomatis.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: LandingPage,
@@ -48,18 +50,8 @@ const STATS = [
 ];
 
 const TIMELINE = [
-  {
-    phase: "Tahap 01",
-    title: "Pendaftaran Peserta",
-    date: "5 Jan – 20 Feb 2026",
-    status: "Selesai",
-  },
-  {
-    phase: "Tahap 02",
-    title: "Penyisihan CBT Nasional",
-    date: "8 Maret 2026",
-    status: "Berlangsung",
-  },
+  { phase: "Tahap 01", title: "Pendaftaran Peserta", date: "5 Jan – 20 Feb 2026", status: "Selesai" },
+  { phase: "Tahap 02", title: "Penyisihan CBT Nasional", date: "8 Maret 2026", status: "Berlangsung" },
   { phase: "Tahap 03", title: "Semifinal Analisis Kasus", date: "12 April 2026", status: "Akan Datang" },
   { phase: "Tahap 04", title: "Grand Final & Awarding", date: "17 Mei 2026", status: "Akan Datang" },
 ];
@@ -107,16 +99,16 @@ export default function LandingPage() {
   return (
     <PublicLayout>
       {/* Hero */}
-      <section className="hero-teal grid-noise">
+      <section className="hero-cyber grid-dot">
         <div className="mx-auto grid w-full max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-primary-foreground/85">
+            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-cyan-400">
               <Trophy className="size-3.5 text-gold" /> Kompetisi Pasar Modal &amp; Investasi 2026
             </span>
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] text-primary-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] text-white sm:text-5xl lg:text-6xl">
               Uji Kemampuan Analisis Investasimu di Panggung Nasional
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/75">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-400">
               Investment Competition 2026 adalah ajang kompetisi pasar modal tingkat nasional dengan
               sistem ujian CBT terstandar, penilaian otomatis, dan pengawasan live proctoring.
             </p>
@@ -131,23 +123,19 @@ export default function LandingPage() {
             <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {STATS.map((s) => (
                 <div key={s.label} className="rounded-xl border border-white/10 bg-white/5 p-4">
-                  <s.icon className="size-4 text-cyan-teal" />
-                  <p className="mt-2 font-display text-xl font-extrabold text-primary-foreground">
-                    {s.value}
-                  </p>
-                  <p className="text-[11px] text-primary-foreground/60">{s.label}</p>
+                  <s.icon className="size-4 text-cyan-400" />
+                  <p className="mt-2 font-display text-xl font-extrabold text-white">{s.value}</p>
+                  <p className="text-[11px] text-slate-500">{s.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-widest text-cyan-teal">
+          <div className="rounded-2xl border border-white/10 bg-card p-6 backdrop-blur">
+            <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400">
               Sesi Berlangsung
             </p>
-            <h3 className="mt-2 text-xl font-bold text-primary-foreground">
-              Penyisihan CBT — Gelombang 2
-            </h3>
+            <h3 className="mt-2 text-xl font-bold text-white">Penyisihan CBT — Gelombang 2</h3>
             <div className="mt-6 space-y-4">
               {[
                 { icon: Timer, label: "Durasi Ujian", value: "90 Menit · 50 Soal" },
@@ -155,14 +143,12 @@ export default function LandingPage() {
                 { icon: Award, label: "Kelulusan", value: "Skor minimum 70 ke semifinal" },
               ].map((row) => (
                 <div key={row.label} className="flex items-start gap-3 border-b border-white/10 pb-4">
-                  <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white/10 text-cyan-teal">
+                  <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white/5 text-cyan-400">
                     <row.icon className="size-4" />
                   </span>
                   <div>
-                    <p className="text-[11px] uppercase tracking-wide text-primary-foreground/55">
-                      {row.label}
-                    </p>
-                    <p className="text-sm font-semibold text-primary-foreground">{row.value}</p>
+                    <p className="text-[11px] uppercase tracking-wide text-slate-500">{row.label}</p>
+                    <p className="text-sm font-semibold text-white">{row.value}</p>
                   </div>
                 </div>
               ))}
@@ -183,16 +169,16 @@ export default function LandingPage() {
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {TIMELINE.map((t) => (
-            <Card key={t.title} className="card-accent shadow-[var(--shadow-card)]">
+            <Card key={t.title} className="card-accent border-white/10 bg-card">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
-                  <span className="rounded-md bg-secondary px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-teal-medium">
+                  <span className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-cyan-400">
                     {t.phase}
                   </span>
                   <StatusPill status={t.status} />
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-teal-deepest">{t.title}</h3>
-                <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                <h3 className="mt-4 text-lg font-bold text-white">{t.title}</h3>
+                <p className="mt-2 flex items-center gap-2 text-sm text-slate-400">
                   <CalendarDays className="size-4" /> {t.date}
                 </p>
               </CardContent>
@@ -202,7 +188,7 @@ export default function LandingPage() {
       </section>
 
       {/* Categories */}
-      <section className="bg-card py-20">
+      <section className="border-y border-white/10 bg-card py-20">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
           <SectionTitle
             eyebrow="Kategori Peserta"
@@ -213,16 +199,16 @@ export default function LandingPage() {
             {CATEGORIES.map((c) => (
               <div
                 key={c.title}
-                className="rounded-2xl border border-border bg-background p-8 transition-shadow hover:shadow-[var(--shadow-card)]"
+                className="rounded-2xl border border-white/10 bg-background p-8 transition-shadow hover:shadow-[var(--shadow-card)]"
               >
-                <span className="inline-block rounded-full bg-teal-medium px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary-foreground">
+                <span className="inline-block rounded-full bg-cyan-500 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-slate-950">
                   Kategori
                 </span>
-                <h3 className="mt-4 text-2xl font-extrabold text-teal-deepest">{c.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+                <h3 className="mt-4 text-2xl font-extrabold text-white">{c.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-400">{c.desc}</p>
                 <ul className="mt-5 space-y-2.5">
                   {c.points.map((p) => (
-                    <li key={p} className="flex items-center gap-2 text-sm text-foreground">
+                    <li key={p} className="flex items-center gap-2 text-sm text-slate-200">
                       <CheckCircle2 className="size-4 text-emerald" /> {p}
                     </li>
                   ))}
@@ -238,25 +224,25 @@ export default function LandingPage() {
         <SectionTitle eyebrow="Dewan Juri" title="Dinilai Langsung oleh Praktisi & Akademisi" />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {JURY.map((j) => (
-            <div key={j.name} className="rounded-xl border border-border bg-card p-6 text-center">
-              <div className="mx-auto grid size-16 place-items-center rounded-full bg-teal-deep font-display text-xl font-extrabold text-primary-foreground">
+            <div key={j.name} className="rounded-xl border border-white/10 bg-card p-6 text-center">
+              <div className="mx-auto grid size-16 place-items-center rounded-full bg-cyan-500 font-display text-xl font-extrabold text-slate-950">
                 {j.name
                   .split(" ")
                   .slice(-2)
                   .map((w) => w[0])
                   .join("")}
               </div>
-              <h4 className="mt-4 text-base font-bold text-teal-deepest">{j.name}</h4>
-              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{j.role}</p>
+              <h4 className="mt-4 text-base font-bold text-white">{j.name}</h4>
+              <p className="mt-1 text-xs leading-relaxed text-slate-400">{j.role}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Sponsors */}
-      <section className="bg-card py-16">
+      <section className="border-y border-white/10 bg-card py-16">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
             Didukung oleh
           </p>
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
@@ -270,7 +256,7 @@ export default function LandingPage() {
             ].map((s) => (
               <div
                 key={s}
-                className="grid h-16 place-items-center rounded-lg border border-border bg-background text-sm font-semibold text-muted-foreground"
+                className="grid h-16 place-items-center rounded-lg border border-white/10 bg-background text-sm font-semibold text-slate-400"
               >
                 {s}
               </div>
@@ -284,11 +270,11 @@ export default function LandingPage() {
         <SectionTitle eyebrow="FAQ" title="Pertanyaan yang Sering Diajukan" />
         <Accordion type="single" collapsible className="mt-8">
           {FAQ.map((f, i) => (
-            <AccordionItem key={f.q} value={`i${i}`} className="border-border">
-              <AccordionTrigger className="text-left text-base font-semibold text-teal-deepest">
+            <AccordionItem key={f.q} value={`i${i}`} className="border-white/10">
+              <AccordionTrigger className="text-left text-base font-semibold text-white">
                 {f.q}
               </AccordionTrigger>
-              <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+              <AccordionContent className="text-sm leading-relaxed text-slate-400">
                 {f.a}
               </AccordionContent>
             </AccordionItem>
@@ -298,11 +284,11 @@ export default function LandingPage() {
 
       {/* CTA */}
       <section className="mx-auto w-full max-w-7xl px-4 pb-8 sm:px-6">
-        <div className="hero-teal grid-noise rounded-3xl px-8 py-14 text-center">
-          <h2 className="text-3xl font-extrabold text-primary-foreground sm:text-4xl">
+        <div className="hero-cyber grid-dot rounded-3xl px-8 py-14 text-center">
+          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
             Siap Menghadapi Penyisihan CBT?
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/70">
+          <p className="mx-auto mt-3 max-w-xl text-sm text-slate-400">
             Masuk ke portal peserta, pelajari tata tertib, dan coba simulasi ujian 30 menit sebelum
             hari-H.
           </p>
@@ -326,9 +312,9 @@ export function SectionTitle({
 }) {
   return (
     <div className="max-w-2xl">
-      <span className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-teal">{eyebrow}</span>
-      <h2 className="mt-3 text-3xl font-extrabold text-teal-deepest sm:text-4xl">{title}</h2>
-      {desc && <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>}
+      <span className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-400">{eyebrow}</span>
+      <h2 className="mt-3 text-3xl font-extrabold text-white sm:text-4xl">{title}</h2>
+      {desc && <p className="mt-3 text-sm leading-relaxed text-slate-400">{desc}</p>}
     </div>
   );
 }
@@ -336,11 +322,13 @@ export function SectionTitle({
 function StatusPill({ status }: { status: string }) {
   const tone =
     status === "Berlangsung"
-      ? "bg-emerald/10 text-emerald"
+      ? "border-emerald/20 bg-emerald/10 text-emerald"
       : status === "Selesai"
-        ? "bg-muted text-muted-foreground"
-        : "bg-gold/10 text-gold";
+        ? "border-white/10 bg-white/5 text-slate-400"
+        : "border-gold/20 bg-gold/10 text-gold";
   return (
-    <span className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${tone}`}>{status}</span>
+    <span className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold ${tone}`}>
+      {status}
+    </span>
   );
 }
