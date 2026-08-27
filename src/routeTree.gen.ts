@@ -11,6 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BeritaRouteImport } from './routes/berita'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as HasilRouteImport } from './routes/hasil'
+import { Route as LobbyRouteImport } from './routes/lobby'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as LupaPasswordRouteImport } from './routes/lupa-password'
+import { Route as PetunjukRouteImport } from './routes/petunjuk'
+import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as SilabusRouteImport } from './routes/silabus'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +30,41 @@ const BeritaRoute = BeritaRouteImport.update({
   path: '/berita',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HasilRoute = HasilRouteImport.update({
+  id: '/hasil',
+  path: '/hasil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LobbyRoute = LobbyRouteImport.update({
+  id: '/lobby',
+  path: '/lobby',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LupaPasswordRoute = LupaPasswordRouteImport.update({
+  id: '/lupa-password',
+  path: '/lupa-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PetunjukRoute = PetunjukRouteImport.update({
+  id: '/petunjuk',
+  path: '/petunjuk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilRoute = ProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SilabusRoute = SilabusRouteImport.update({
   id: '/silabus',
   path: '/silabus',
@@ -32,30 +74,89 @@ const SilabusRoute = SilabusRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/berita': typeof BeritaRoute
+  '/dashboard': typeof DashboardRoute
+  '/hasil': typeof HasilRoute
+  '/lobby': typeof LobbyRoute
+  '/login': typeof LoginRoute
+  '/lupa-password': typeof LupaPasswordRoute
+  '/petunjuk': typeof PetunjukRoute
+  '/profil': typeof ProfilRoute
   '/silabus': typeof SilabusRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/berita': typeof BeritaRoute
+  '/dashboard': typeof DashboardRoute
+  '/hasil': typeof HasilRoute
+  '/lobby': typeof LobbyRoute
+  '/login': typeof LoginRoute
+  '/lupa-password': typeof LupaPasswordRoute
+  '/petunjuk': typeof PetunjukRoute
+  '/profil': typeof ProfilRoute
   '/silabus': typeof SilabusRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/berita': typeof BeritaRoute
+  '/dashboard': typeof DashboardRoute
+  '/hasil': typeof HasilRoute
+  '/lobby': typeof LobbyRoute
+  '/login': typeof LoginRoute
+  '/lupa-password': typeof LupaPasswordRoute
+  '/petunjuk': typeof PetunjukRoute
+  '/profil': typeof ProfilRoute
   '/silabus': typeof SilabusRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/berita' | '/silabus'
+  fullPaths:
+    | '/'
+    | '/berita'
+    | '/dashboard'
+    | '/hasil'
+    | '/lobby'
+    | '/login'
+    | '/lupa-password'
+    | '/petunjuk'
+    | '/profil'
+    | '/silabus'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/berita' | '/silabus'
-  id: '__root__' | '/' | '/berita' | '/silabus'
+  to:
+    | '/'
+    | '/berita'
+    | '/dashboard'
+    | '/hasil'
+    | '/lobby'
+    | '/login'
+    | '/lupa-password'
+    | '/petunjuk'
+    | '/profil'
+    | '/silabus'
+  id:
+    | '__root__'
+    | '/'
+    | '/berita'
+    | '/dashboard'
+    | '/hasil'
+    | '/lobby'
+    | '/login'
+    | '/lupa-password'
+    | '/petunjuk'
+    | '/profil'
+    | '/silabus'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BeritaRoute: typeof BeritaRoute
+  DashboardRoute: typeof DashboardRoute
+  HasilRoute: typeof HasilRoute
+  LobbyRoute: typeof LobbyRoute
+  LoginRoute: typeof LoginRoute
+  LupaPasswordRoute: typeof LupaPasswordRoute
+  PetunjukRoute: typeof PetunjukRoute
+  ProfilRoute: typeof ProfilRoute
   SilabusRoute: typeof SilabusRoute
 }
 
@@ -75,6 +176,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BeritaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hasil': {
+      id: '/hasil'
+      path: '/hasil'
+      fullPath: '/hasil'
+      preLoaderRoute: typeof HasilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lobby': {
+      id: '/lobby'
+      path: '/lobby'
+      fullPath: '/lobby'
+      preLoaderRoute: typeof LobbyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lupa-password': {
+      id: '/lupa-password'
+      path: '/lupa-password'
+      fullPath: '/lupa-password'
+      preLoaderRoute: typeof LupaPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/petunjuk': {
+      id: '/petunjuk'
+      path: '/petunjuk'
+      fullPath: '/petunjuk'
+      preLoaderRoute: typeof PetunjukRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil': {
+      id: '/profil'
+      path: '/profil'
+      fullPath: '/profil'
+      preLoaderRoute: typeof ProfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/silabus': {
       id: '/silabus'
       path: '/silabus'
@@ -88,6 +238,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BeritaRoute: BeritaRoute,
+  DashboardRoute: DashboardRoute,
+  HasilRoute: HasilRoute,
+  LobbyRoute: LobbyRoute,
+  LoginRoute: LoginRoute,
+  LupaPasswordRoute: LupaPasswordRoute,
+  PetunjukRoute: PetunjukRoute,
+  ProfilRoute: ProfilRoute,
   SilabusRoute: SilabusRoute,
 }
 export const routeTree = rootRouteImport
