@@ -21,6 +21,10 @@ import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as SilabusRouteImport } from './routes/silabus'
 import { Route as UjianRouteImport } from './routes/ujian'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminBankSoalRouteImport } from './routes/admin.bank-soal'
+import { Route as AdminJadwalRouteImport } from './routes/admin.jadwal'
+import { Route as AdminPesertaRouteImport } from './routes/admin.peserta'
+import { Route as AdminRekapRouteImport } from './routes/admin.rekap'
 import { Route as PengawasIndexRouteImport } from './routes/pengawas.index'
 import { Route as PengawasLogRouteImport } from './routes/pengawas.log'
 
@@ -84,6 +88,26 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminBankSoalRoute = AdminBankSoalRouteImport.update({
+  id: '/admin/bank-soal',
+  path: '/admin/bank-soal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminJadwalRoute = AdminJadwalRouteImport.update({
+  id: '/admin/jadwal',
+  path: '/admin/jadwal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPesertaRoute = AdminPesertaRouteImport.update({
+  id: '/admin/peserta',
+  path: '/admin/peserta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRekapRoute = AdminRekapRouteImport.update({
+  id: '/admin/rekap',
+  path: '/admin/rekap',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PengawasIndexRoute = PengawasIndexRouteImport.update({
   id: '/pengawas/',
   path: '/pengawas/',
@@ -107,6 +131,10 @@ export interface FileRoutesByFullPath {
   '/profil': typeof ProfilRoute
   '/silabus': typeof SilabusRoute
   '/ujian': typeof UjianRoute
+  '/admin/bank-soal': typeof AdminBankSoalRoute
+  '/admin/jadwal': typeof AdminJadwalRoute
+  '/admin/peserta': typeof AdminPesertaRoute
+  '/admin/rekap': typeof AdminRekapRoute
   '/pengawas/log': typeof PengawasLogRoute
   '/admin/': typeof AdminIndexRoute
   '/pengawas/': typeof PengawasIndexRoute
@@ -123,6 +151,10 @@ export interface FileRoutesByTo {
   '/profil': typeof ProfilRoute
   '/silabus': typeof SilabusRoute
   '/ujian': typeof UjianRoute
+  '/admin/bank-soal': typeof AdminBankSoalRoute
+  '/admin/jadwal': typeof AdminJadwalRoute
+  '/admin/peserta': typeof AdminPesertaRoute
+  '/admin/rekap': typeof AdminRekapRoute
   '/pengawas/log': typeof PengawasLogRoute
   '/admin': typeof AdminIndexRoute
   '/pengawas': typeof PengawasIndexRoute
@@ -140,6 +172,10 @@ export interface FileRoutesById {
   '/profil': typeof ProfilRoute
   '/silabus': typeof SilabusRoute
   '/ujian': typeof UjianRoute
+  '/admin/bank-soal': typeof AdminBankSoalRoute
+  '/admin/jadwal': typeof AdminJadwalRoute
+  '/admin/peserta': typeof AdminPesertaRoute
+  '/admin/rekap': typeof AdminRekapRoute
   '/pengawas/log': typeof PengawasLogRoute
   '/admin/': typeof AdminIndexRoute
   '/pengawas/': typeof PengawasIndexRoute
@@ -158,6 +194,10 @@ export interface FileRouteTypes {
     | '/profil'
     | '/silabus'
     | '/ujian'
+    | '/admin/bank-soal'
+    | '/admin/jadwal'
+    | '/admin/peserta'
+    | '/admin/rekap'
     | '/pengawas/log'
     | '/admin/'
     | '/pengawas/'
@@ -174,6 +214,10 @@ export interface FileRouteTypes {
     | '/profil'
     | '/silabus'
     | '/ujian'
+    | '/admin/bank-soal'
+    | '/admin/jadwal'
+    | '/admin/peserta'
+    | '/admin/rekap'
     | '/pengawas/log'
     | '/admin'
     | '/pengawas'
@@ -190,6 +234,10 @@ export interface FileRouteTypes {
     | '/profil'
     | '/silabus'
     | '/ujian'
+    | '/admin/bank-soal'
+    | '/admin/jadwal'
+    | '/admin/peserta'
+    | '/admin/rekap'
     | '/pengawas/log'
     | '/admin/'
     | '/pengawas/'
@@ -207,6 +255,10 @@ export interface RootRouteChildren {
   ProfilRoute: typeof ProfilRoute
   SilabusRoute: typeof SilabusRoute
   UjianRoute: typeof UjianRoute
+  AdminBankSoalRoute: typeof AdminBankSoalRoute
+  AdminJadwalRoute: typeof AdminJadwalRoute
+  AdminPesertaRoute: typeof AdminPesertaRoute
+  AdminRekapRoute: typeof AdminRekapRoute
   PengawasLogRoute: typeof PengawasLogRoute
   AdminIndexRoute: typeof AdminIndexRoute
   PengawasIndexRoute: typeof PengawasIndexRoute
@@ -298,6 +350,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/bank-soal': {
+      id: '/admin/bank-soal'
+      path: '/admin/bank-soal'
+      fullPath: '/admin/bank-soal'
+      preLoaderRoute: typeof AdminBankSoalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/jadwal': {
+      id: '/admin/jadwal'
+      path: '/admin/jadwal'
+      fullPath: '/admin/jadwal'
+      preLoaderRoute: typeof AdminJadwalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/peserta': {
+      id: '/admin/peserta'
+      path: '/admin/peserta'
+      fullPath: '/admin/peserta'
+      preLoaderRoute: typeof AdminPesertaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/rekap': {
+      id: '/admin/rekap'
+      path: '/admin/rekap'
+      fullPath: '/admin/rekap'
+      preLoaderRoute: typeof AdminRekapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pengawas/': {
       id: '/pengawas/'
       path: '/pengawas'
@@ -327,6 +407,10 @@ const rootRouteChildren: RootRouteChildren = {
   ProfilRoute: ProfilRoute,
   SilabusRoute: SilabusRoute,
   UjianRoute: UjianRoute,
+  AdminBankSoalRoute: AdminBankSoalRoute,
+  AdminJadwalRoute: AdminJadwalRoute,
+  AdminPesertaRoute: AdminPesertaRoute,
+  AdminRekapRoute: AdminRekapRoute,
   PengawasLogRoute: PengawasLogRoute,
   AdminIndexRoute: AdminIndexRoute,
   PengawasIndexRoute: PengawasIndexRoute,
